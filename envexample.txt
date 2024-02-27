@@ -1,0 +1,14 @@
+# .env file for MariaDB
+# You can adjust these values as needed
+
+# Root password for MariaDB
+MARIADB_ROOT_PASSWORD=your_root_password
+
+# Database user password
+MARIADB_PASSWORD=secret
+
+# Database name
+MARIADB_DB=laravel_docker
+
+# Database user
+MARIADB_USER=db_user

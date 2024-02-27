@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:11.1.2
+    container_name: mdbs
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MYSQL_PASSWORD: ${MARIADB_PASSWORD}
+      MYSQL_DATABASE: ${MARIADB_DB}
+      MYSQL_USER: ${MARIADB_USER}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      # - ./mariadb/my.cnf:/etc/mysql/my.cnf   # Add this line
+    ports:
+      - '3312:3306'
+    
+
+  php-apache:
+    container_name: php-showcase
+    build:
+      context: ./php
+    ports:
+      - '80:80'
+    volumes:
+      - ./src:/var/www/laravel_docker
+      - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
+    depends_on:
+      - db
+      
+volumes:
+  mariadb-data:
