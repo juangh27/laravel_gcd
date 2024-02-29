@@ -11,7 +11,7 @@ services:
       MYSQL_DATABASE: ${MARIADB_DB}
       MYSQL_USER: ${MARIADB_USER}
     volumes:
-      - mariadb-data:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql/data
       # - ./mariadb/my.cnf:/etc/mysql/my.cnf   # Add this line
     ports:
       - '3312:3306'

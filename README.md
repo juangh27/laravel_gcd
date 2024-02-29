@@ -13,6 +13,7 @@ composer install
 ```bash
 php artisan key:generate
 php artisan migrate
+
 ```
 
 ### Optional
