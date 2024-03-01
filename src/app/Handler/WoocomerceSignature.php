@@ -18,7 +18,7 @@ class WoocomerceSignature implements SignatureValidator
         $signingSecret = $config->signingSecret;
 
 
-        $computedSignature = base64_encode(hash_hmac('sha256', $request->getContent(), $signingSecret));
+        $computedSignature = base64_encode(hash_hmac('sha256', $request->getContent(), $signingSecret, true));
         // $computedSignature = hash_hmac('sha256', $request->getContent(), $signingSecret);
         return hash_equals($signature, $computedSignature);
     }
