@@ -20,6 +20,6 @@ class WebhookController extends Controller
         $register->save();
 
 
-        return response()->json(['success' => true]);
+        return response()->json(['message' => 'ok']);
     }
 }
