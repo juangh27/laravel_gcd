@@ -12,12 +12,13 @@ class WebhookController extends Controller
     {
         // Process webhook payload
         // Perform actions based on the webhook data
-        $register = new Registros;
-        $register->user_id = 4; // Set user_id if applicable
-        $register->inventario = 4;
-        $register->sku = "test";
-        $register->operacion = "testing";
-        $register->save();
+        // $register = new Registros;
+
+        // $register->user_id = 4; // Set user_id if applicable
+        // $register->inventario = 4;
+        // $register->sku = "test";
+        // $register->operacion = "testing";
+        // $register->save();
 
 
         return response()->json(['message' => 'ok']);
