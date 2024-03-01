@@ -47,5 +47,5 @@ php artisan filament:install --panels
 
 ```
 
-
+  
 chown -R www-data:www-data /var/www/laravel_docker/storage/framework

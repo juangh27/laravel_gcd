@@ -30,6 +30,8 @@ Route::get('/index2', Api_crudsController::class.'@index2');
 
 Route::get('/get_data', Api_crudsController::class.'@getDatatableData')->name('api_cruds.get_data');
 
+Route::webhooks('/webhook');
+
 // Route::resource('test', Api_crudsController::class);
 // Route::get('/api/create', Api_crudsController::class);
 // Route::get('/api/create', Api_crudsController::class);
