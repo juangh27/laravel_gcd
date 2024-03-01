@@ -6,6 +6,7 @@ use App\Livewire\Counter;
 use App\Http\Controllers\Api_crudsController;
 use App\Http\Controllers\WebHookHandler;
 use App\Models\Api_crud;
+use App\Http\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/index2', Api_crudsController::class.'@index2');
 Route::get('/get_data', Api_crudsController::class.'@getDatatableData')->name('api_cruds.get_data');
 
 Route::webhooks('/webhook');
+Route::post('webhook/endpoint', [WebhookController::class, 'handle']);
 
 // Route::resource('test', Api_crudsController::class);
 // Route::get('/api/create', Api_crudsController::class);
