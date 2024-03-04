@@ -10,24 +10,28 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\Registros;
 use App\Models\OrdenesCompra;
 use Illuminate\Support\Arr;
-use Codexshaper\WooCommerce\Facades\Order;
+use Spatie\WebhookClient\Models\WebhookCall;
 
-use Spatie\WebhookClient\Jobs\ProcessWebhookJob as SpatieProcessWebhookJob;
-
-class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
+class ProcessWebhookJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    private $webhookCall;
+
     /**
      * Create a new job instance.
+     *
+     * @param WebhookCall $webhookCall
      */
-    public function __construct()
+    public function __construct(WebhookCall $webhookCall)
     {
-        //
+        $this->webhookCall = $webhookCall;
     }
 
     /**
      * Execute the job.
+     *
+     * @return void
      */
     public function handle(): void
     {
