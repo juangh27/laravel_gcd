@@ -45,7 +45,7 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         $orden = new OrdenesCompra;
         // $orden->json = $data;
 
-        $orden->texto = $data->arg;
+        $orden->texto = $data;
         $orden->save();
 
 
