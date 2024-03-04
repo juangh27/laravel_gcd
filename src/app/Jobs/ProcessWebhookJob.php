@@ -46,12 +46,12 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob
         $register->operacion = "edicion";
         $register->save();
         // $event = \Arr::get($this->webhookCall->payload, 'event');
-        $dat = json_decode($this->webhookCall, true);
+
 
         $orden->texto = "test2";
         $orden->save();
 
-        $orden->texto = $dat;
+        $orden->texto = $this->webhookCall;;
         $orden->save();
 
 
