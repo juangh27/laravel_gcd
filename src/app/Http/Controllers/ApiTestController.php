@@ -15,6 +15,8 @@ use Automattic\WooCommerce\Client;
 use App\Models\Registros;
 use Codexshaper\WooCommerce\Facades\Product;
 use App\Models\Products;
+use Codexshaper\WooCommerce\Facades\Order;
+
 
 
 
@@ -81,12 +83,16 @@ class ApiTestController extends Controller
     {
         $test = Registros::all();
         $products = Product::all();
+        $order_id = 4569;
+        // $order = Order::find($order_id);
+        $order = Order::all();
+        dd($order);
         $i = 0;
         // return $sku;
         $mostCalledSkus = Registros::get()
             ->groupBy('sku')->map->count()->sortDesc();
 
-        
+
         dd($mostCalledSkus);
         $sku = $mostCalledSkus->keys()->toArray();
         // ->count();

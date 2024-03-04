@@ -8,6 +8,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Registros;
+use App\Models\OrdenesCompra;
+use Codexshaper\WooCommerce\Facades\Order;
 
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob as SpatieProcessWebhookJob;
 
@@ -31,12 +33,22 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         //
         // $event = \Arr::get($this->webhookCall->payload, 'event');
         // $data = \Arr::get($this->webhookCall->payload, 'data', []);
+        $dat = json_decode($this->webhookCall, true);
+        $data = $dat['payload'];
+
+        $orden = new OrdenesCompra;
+        $orden->json = $data;
+
+        $orden->texto = $data->arg;
+        $orden->save();
+
 
         $register = new Registros;
-        $register->user_id = 4; // Set user_id if applicable
-        $register->inventario = 4;
-        $register->sku = "test";
-        $register->operacion = "testing";
+        $register->user_id = 5; // Set user_id if applicable
+        $register->inventario = 7;
+        $register->sku = "test3";
+        $register->operacion = "edicion";
         $register->save();
+
     }
 }

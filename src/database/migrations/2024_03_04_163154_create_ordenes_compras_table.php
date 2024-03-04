@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('woo_products', function (Blueprint $table) {
+        Schema::create('ordenes_compras', function (Blueprint $table) {
+
             $table->id();
+            $table->longText("texto");
+            $table->json("json");
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('woo_products');
+        Schema::dropIfExists('ordenes_compras');
     }
 };
