@@ -4,9 +4,10 @@ namespace App\Handler;
 
 use Illuminate\Support\Facades\Log;
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob;
+use App\Models\OrdenesCompra;
 
-//The class extends "ProcessWebhookJob" class as that is the class 
-//that will handle the job of processing our webhook before we have 
+//The class extends "ProcessWebhookJob" class as that is the class
+//that will handle the job of processing our webhook before we have
 //access to it.
 
 class ProcessWebhook extends ProcessWebhookJob
@@ -15,13 +16,17 @@ class ProcessWebhook extends ProcessWebhookJob
     {
         $dat = json_decode($this->webhookCall, true);
         $data = $dat['payload'];
-    
+
         if ($data['event'] == 'charge.success') {
-          // take action since the charge was success
-          // Create order
-          // Sed email
-          // Whatever you want
-          Log::info($data);
+
+            // take action since the charge was success
+            // Create order
+            // Sed email
+            // Whatever you want
+            $orden = new OrdenesCompra;
+            $orden->texto = $data;
+            $orden->save();
+            Log::info($data);
         }
 
         //Acknowledge you received the response
