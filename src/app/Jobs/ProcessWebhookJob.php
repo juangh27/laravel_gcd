@@ -31,6 +31,7 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
      */
     public function handle(): void
     {
+        $event = Arr::get($this->webhookCall->payload, 'event');
         // $dat = json_decode($this->webhookCall, true);
         // $data = $dat['payload'];
 
@@ -41,7 +42,6 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         $register->operacion = "edicion";
         $register->save();
         // $test= $this->webhookCall->payload;
-        $event = Arr::get($this->webhookCall->payload, 'event');
         $var = var_export($event);
         // $data = \Arr::get($this->webhookCall->payload, 'data', []);
 
