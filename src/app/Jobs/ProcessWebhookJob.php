@@ -9,6 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Registros;
 use App\Models\OrdenesCompra;
+use Illuminate\Support\Arr;
 use Codexshaper\WooCommerce\Facades\Order;
 
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob as SpatieProcessWebhookJob;
@@ -39,9 +40,9 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         $register->sku = "test5";
         $register->operacion = "edicion";
         $register->save();
-        $test= $this->webhookCall->payload;
-        $var = var_export($test);
-        // $event = \Arr::get($this->webhookCall->payload, 'event');
+        // $test= $this->webhookCall->payload;
+        $event = Arr::get($this->webhookCall->payload, 'event');
+        $var = var_export($event);
         // $data = \Arr::get($this->webhookCall->payload, 'data', []);
 
 
