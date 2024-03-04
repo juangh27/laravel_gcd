@@ -51,7 +51,7 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob
         // $orden->texto = "test2";
         // $orden->save();
 
-        $orden->texto = $this->webhookCall;
+        $orden->texto = strval($this->webhookCall);
         $orden->save();
 
 
