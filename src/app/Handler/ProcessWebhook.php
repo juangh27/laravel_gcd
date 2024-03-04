@@ -24,7 +24,7 @@ class ProcessWebhook extends ProcessWebhookJob
             // Sed email
             // Whatever you want
             $orden = new OrdenesCompra;
-            $orden->texto = $data;
+            $orden->texto = "test log";
             $orden->save();
             Log::info($data);
         }
