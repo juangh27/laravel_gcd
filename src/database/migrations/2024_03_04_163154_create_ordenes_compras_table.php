@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ordenes_compras', function (Blueprint $table) {
 
             $table->id();
-            $table->longText("texto");
-            $table->json("json");
+            $table->longText("texto")->nullable();
+            $table->json("json")->nullable();
             $table->timestamps();
         });
     }
