@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Illuminate\Support\Arr;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -36,8 +37,8 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         $orden->texto = "test1";
         $orden->save();
 
-        $dat = json_decode($this->webhookCall, true);
-        $data = $dat['payload'];
+        // $dat = json_decode($this->webhookCall, true);
+        // $data = $dat['payload'];
         //
         $register = new Registros;
         $register->user_id = 5; // Set user_id if applicable
@@ -46,7 +47,14 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         $register->operacion = "edicion";
         $register->save();
         // $event = \Arr::get($this->webhookCall->payload, 'event');
-        // $data = \Arr::get($this->webhookCall->payload, 'data', []);
+        $data = Arr::get($this->webhookCall->payload, 'data', []);
+
+        $orden->texto = "test2";
+        $orden->save();
+
+        $orden->texto = $data;
+        $orden->save();
+
 
 
 
