@@ -2,6 +2,8 @@
 
 namespace App\Jobs;
 
+
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Arr;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,41 +32,45 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob
      */
     public function handle(): void
     {
-        $orden = new OrdenesCompra;
-        // $orden->json = "$dat";
+        // $orden = new OrdenesCompra;
+        // // $orden->json = "$dat";
 
-        // $orden->texto = "test1";
+        // // $orden->texto = "test1";
+        // // $orden->save();
+
+
+        // // $data = $dat['payload'];
+        // //
+        // $register = new Registros;
+        // $register->user_id = 5; // Set user_id if applicable
+        // $register->sku = "test9";
+        // $register->inventario = 6;
+        // $register->operacion = "edicion";
+        // $register->save();
+        // // $event = \Arr::get($this->webhookCall->payload, 'event');
+
+
+        // // $orden->save();
+
+        // $payload = $this->webhookCall->payload; // Get raw JSON payload
+        // // $data = json_decode($payload, true); // Decode payload (optional)
+
+        // // Access specific fields from $data if decoded
+        // // $action = $data['action'];
+        // // $arg = $data['arg'];
+        // $orden->texto = "test2";
         // $orden->save();
-
-
-        // $data = $dat['payload'];
-        //
-        $register = new Registros;
-        $register->user_id = 5; // Set user_id if applicable
-        $register->sku = "test9";
-        $register->inventario = 6;
-        $register->operacion = "edicion";
-        $register->save();
-        // $event = \Arr::get($this->webhookCall->payload, 'event');
-
-
-        // $orden->save();
-
-        $payload = $this->webhookCall->payload; // Get raw JSON payload
-        // $data = json_decode($payload, true); // Decode payload (optional)
-
-        // Access specific fields from $data if decoded
-        // $action = $data['action'];
-        $arg = $payload['arg'];
-        // $arg = $data['arg'];
-        $orden->texto = "test2";
-        // $orden->texto = $arg;
-        $orden->save();
+        // $arg = $payload['arg'];
+        // // $orden->texto = $arg;
 
 
 
 
-
+    $payload = $this->webhookCall->payload;
+    Log::debug('Webhook Payload:', [
+        'raw_payload' => $payload,
+        // Add additional data if needed, like decoded data
+    ]);
 
 
 
