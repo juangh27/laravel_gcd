@@ -33,25 +33,25 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob
         $orden = new OrdenesCompra;
         // $orden->json = "$dat";
 
-        $orden->texto = "test1";
-        $orden->save();
+        // $orden->texto = "test1";
+        // $orden->save();
 
 
         // $data = $dat['payload'];
         //
         $register = new Registros;
         $register->user_id = 5; // Set user_id if applicable
-        $register->sku = "test6";
+        $register->sku = "test9";
         $register->inventario = 6;
         $register->operacion = "edicion";
         $register->save();
         // $event = \Arr::get($this->webhookCall->payload, 'event');
 
 
-        $orden->texto = "test2";
-        $orden->save();
+        // $orden->texto = "test2";
+        // $orden->save();
 
-        $orden->texto = $this->webhookCall;;
+        $orden->texto = $this->webhookCall;
         $orden->save();
 
 
