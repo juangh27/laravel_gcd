@@ -32,7 +32,8 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
     {
         // $dat = json_decode($this->webhookCall, true);
         // $data = $dat['payload'];
-        //
+        $test= $this->webhookCall;
+        $var = var_dump($test);
         $register = new Registros;
         $register->user_id = 5; // Set user_id if applicable
         $register->inventario = 6;
@@ -46,7 +47,7 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         $orden = new OrdenesCompra;
         // $orden->json = "$dat";
 
-        $orden->texto = "fds";
+        $orden->texto = $var;
         $orden->save();
 
 
