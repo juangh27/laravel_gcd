@@ -32,11 +32,11 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob
      */
     public function handle(): void
     {
-        // $orden = new OrdenesCompra;
+        $orden = new OrdenesCompra;
         // // $orden->json = "$dat";
 
-        // // $orden->texto = "test1";
-        // // $orden->save();
+        $orden->texto = "test_20";
+        $orden->save();
 
 
         // // $data = $dat['payload'];
@@ -66,14 +66,7 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob
 
 
 
-        $dat = json_decode($this->webhookCall, true);
-        $data = $dat['payload'];
-    Log::info($dat
-        // Add additional data if needed, like decoded data
-    );
-    Log::info($data
-        // Add additional data if needed, like decoded data
-    );
+
 
 
 
