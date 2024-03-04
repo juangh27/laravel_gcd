@@ -14,9 +14,8 @@ use Codexshaper\WooCommerce\Facades\Order;
 
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob as SpatieProcessWebhookJob;
 
-class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
+class ProcessWebhookJob extends SpatieProcessWebhookJob
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
      * Create a new job instance.
@@ -37,7 +36,7 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         $orden->texto = "test1";
         $orden->save();
 
-        // $dat = json_decode($this->webhookCall, true);
+
         // $data = $dat['payload'];
         //
         $register = new Registros;
@@ -47,12 +46,12 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         $register->operacion = "edicion";
         $register->save();
         // $event = \Arr::get($this->webhookCall->payload, 'event');
-        $data = Arr::get($this->webhookCall->payload, 'data', []);
+        $dat = json_decode($this->webhookCall, true);
 
         $orden->texto = "test2";
         $orden->save();
 
-        $orden->texto = $data;
+        $orden->texto = $dat;
         $orden->save();
 
 
