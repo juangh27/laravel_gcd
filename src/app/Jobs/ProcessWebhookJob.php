@@ -35,8 +35,8 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
         //
         $register = new Registros;
         $register->user_id = 5; // Set user_id if applicable
+        $register->sku = "test6";
         $register->inventario = $data->arg;
-        $register->sku = "test5";
         $register->operacion = "edicion";
         $register->save();
         // $event = \Arr::get($this->webhookCall->payload, 'event');
