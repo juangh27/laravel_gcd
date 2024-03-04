@@ -11,8 +11,10 @@ use App\Models\Registros;
 use App\Models\OrdenesCompra;
 use Illuminate\Support\Arr;
 use Spatie\WebhookClient\Models\WebhookCall;
+use Spatie\WebhookClient\Jobs\ProcessWebhookJob as SpatieProcessWebhookJob;
 
-class ProcessWebhookJob implements ShouldQueue
+class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
+
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
