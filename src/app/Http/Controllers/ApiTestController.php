@@ -16,6 +16,7 @@ use App\Models\Registros;
 use Codexshaper\WooCommerce\Facades\Product;
 use App\Models\Products;
 use Codexshaper\WooCommerce\Facades\Order;
+use App\Models\OrdenesCompra;
 
 
 
@@ -81,35 +82,47 @@ class ApiTestController extends Controller
     }
     public function get_api2()
     {
-        $test = Registros::all();
-        $products = Product::all();
-        $order_id = 4569;
-        // $order = Order::find($order_id);
-        $order = Order::all();
-        dd($order);
-        $i = 0;
+
+        $orden = new OrdenesCompra;
+        // $orden->json = "at";
+
+        $orden->texto = "fds";
+        $orden->save();
+
+
+
+        $get_orders = OrdenesCompra::all();
+        return ($get_orders);
+
+        // $test = Registros::all();
+        // $products = Product::all();
+        // $order_id = 4569;
+        // // $order = Order::find($order_id);
+        // $order = Order::all();
+        // dd($order);
+        // $i = 0;
+        // // return $sku;
+        // $mostCalledSkus = Registros::get()
+        //     ->groupBy('sku')->map->count()->sortDesc();
+
+
+        // dd($mostCalledSkus);
+        // $sku = $mostCalledSkus->keys()->toArray();
+        // // ->count();
+        // // ->orderByDesc('calls')
+        // // ->limit(3)
+        // // ->pluck('sku')
+        // // ->toArray();
+        // // return $mostCalledSkus;
+        // foreach ($mostCalledSkus as $el) {
+        //     if ($i >= 3) break;
+        //     // $sku = $el;
+        //     // echo $el;
+        //     $i++;
+        // }
+
+        // dd($sku);
         // return $sku;
-        $mostCalledSkus = Registros::get()
-            ->groupBy('sku')->map->count()->sortDesc();
-
-
-        dd($mostCalledSkus);
-        $sku = $mostCalledSkus->keys()->toArray();
-        // ->count();
-        // ->orderByDesc('calls')
-        // ->limit(3)
-        // ->pluck('sku')
-        // ->toArray();
-        // return $mostCalledSkus;
-        foreach ($mostCalledSkus as $el) {
-            if ($i >= 3) break;
-            // $sku = $el;
-            // echo $el;
-            $i++;
-        }
-
-        dd($sku);
-        return $sku;
         // $response = Http::get('localhost:8000/api/api_route');
         // dd($response);
         // $body = json_decode($response);
