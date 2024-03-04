@@ -48,10 +48,17 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob
         // $event = \Arr::get($this->webhookCall->payload, 'event');
 
 
-        // $orden->texto = "test2";
         // $orden->save();
 
-        $orden->texto = strval($this->webhookCall);
+        $payload = $this->webhookCall->payload; // Get raw JSON payload
+        // $data = json_decode($payload, true); // Decode payload (optional)
+
+        // Access specific fields from $data if decoded
+        // $action = $data['action'];
+        $arg = $payload['arg'];
+        // $arg = $data['arg'];
+        $orden->texto = "test2";
+        // $orden->texto = $arg;
         $orden->save();
 
 
