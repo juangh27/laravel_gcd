@@ -66,11 +66,14 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob
 
 
 
-    $payload = $this->webhookCall->payload;
-    Log::debug('Webhook Payload:', [
-        'raw_payload' => $payload,
+        $dat = json_decode($this->webhookCall, true);
+        $data = $dat['payload'];
+    Log::info($dat
         // Add additional data if needed, like decoded data
-    ]);
+    );
+    Log::info($data
+        // Add additional data if needed, like decoded data
+    );
 
 
 
