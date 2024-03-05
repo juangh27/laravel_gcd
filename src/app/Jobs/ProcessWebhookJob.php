@@ -18,7 +18,7 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $webhookCall;
+    public $webhookCall;
 
     /**
      * Create a new job instance.
