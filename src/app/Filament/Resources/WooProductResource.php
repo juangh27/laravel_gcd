@@ -54,7 +54,7 @@ class WooProductResource extends Resource
                 Tables\Columns\TextColumn::make('sku')
                     ->label('SKU'),
                 Tables\Columns\TextColumn::make('nombre')
-                    ->label('Nombre')
+                    ->label('Nombres')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('stock')
                     ->label('Inventario')
