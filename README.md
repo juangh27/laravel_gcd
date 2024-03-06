@@ -46,4 +46,8 @@ composer require filament/filament:"^3.2" -W
  
 php artisan filament:install --panels
 
+chown -R www-data:www-data /var/www/laravel_docker/storage/logs
+
+chown -R www-data:www-data /var/www/laravel_docker/storage/
+
 ```

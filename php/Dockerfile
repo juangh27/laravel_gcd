@@ -38,6 +38,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Set the correct permissions for the working directory
 RUN chown -R www-data:www-data /var/www/laravel_docker
+RUN chown -R www-data:www-data /var/www/laravel_docker/storage
 
 # Apache configuration: enable mod_rewrite
 RUN a2enmod rewrite
