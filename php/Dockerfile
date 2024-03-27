@@ -15,10 +15,12 @@ RUN apt-get update \
     zlib1g-dev \
     libpq-dev \
     unzip \
+    cron\
+    nano\
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-
+# dfre
 
 RUN docker-php-ext-install \
     intl \

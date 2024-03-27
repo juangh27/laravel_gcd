@@ -11,5 +11,3 @@ class Products extends Model {
    protected $table = 'new_products';
 
 }
-
-?>
