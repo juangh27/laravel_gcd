@@ -1,7 +1,7 @@
 # Laravel Docker - Español
 
 > [!IMPORTANT]
-> Importante: Revisar el archivo .env en la carpeta src, usar .env.example y solo cambiar los valores, no guardar contraseñas ni informacion importante en producción
+> Revisar el archivo .env en la carpeta src, usar .env.example y solo cambiar los valores, no guardar contraseñas ni informacion importante en producción
 
 ## Comandos
 
