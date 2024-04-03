@@ -74,7 +74,7 @@ class ProductsResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('PRODUCT_NAME')
-                    ->label('Nombre aws')
+                    ->label('Nombre del producto')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('DESCRIPTION')
                     ->label('Descripcion')

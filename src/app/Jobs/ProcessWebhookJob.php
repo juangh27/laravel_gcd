@@ -154,7 +154,7 @@ class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQueue
             'ORIGIN' => 'ECO',
             'Opcion_i' => 0,
             'CODE_s' => "01",
-            'TEXTO2_X' => $nota_de_remision . '|ECO34058|' . date("d/m/Y") . '|28/03/2024|PRI03|MN|PTC|E0001|||||0|||ECO|ENVIAR POR TRES GUERRAS AV. CENTRAL SUR NO.49 CENTRO HISTORICO COMITAN CHIAPAS ||',
+            'TEXTO2_X' => $nota_de_remision . '|ECO34058|' . date("d/m/Y") . '|20/05/2024|PRI03|MN|PTC|E0001|||||0|||ECO|ENVIAR POR TRES GUERRAS AV. CENTRAL SUR NO.49 CENTRO HISTORICO COMITAN CHIAPAS ||',
             'TEXTO3_X' => $str_detalle,
             'GROUP_CATEGORY_s' => "'API'",
         ])->get('{+endpoint}{&ap_corp}{&ap_pass}{&CORP_s}{&INTEGER_1}{&INTEGER_6}{&TEXTO1_10}{&NumDoc_s}{&IDConsulta_s}{&Local_origen}{&Local_destino}{&ORIGIN}{&Opcion_i}{&CODE_s}{&TEXTO2_X}{&TEXTO3_X}{&GROUP_CATEGORY_s}');
